@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>児島・鷲羽山 2泊3日 ドライブ旅行ロードマップ＆費用詳細</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 19px;
+            width: 3px;
+            background-color: #CBD5E1;
+            z-index: 0;
+        }
+        .hero-pattern {
+            background-color: #0b132b;
+            background-image: radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.1) 1px, #0b132b 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <header class="hero-pattern text-white relative overflow-hidden border-b border-cyan-500/30 shadow-2xl">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-indigo-950/80 to-slate-900/90 z-0"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 relative z-10">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+                <div class="space-y-3 max-w-2xl">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 font-semibold text-xs rounded-full uppercase tracking-wider backdrop-blur-md">
+                            <i class="fa-solid fa-compass text-cyan-400"></i> Kojima Drive Route
+                        </span>
+                        <span class="inline-flex items-center gap-1 px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-400/30 font-semibold text-xs rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-car text-amber-400"></i> 2泊3日ロードマップ
+                        </span>
+                        <span id="customBudgetBadge" class="hidden inline-flex items-center gap-1 px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-bold text-xs rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-pen-to-square"></i> カスタム試算中
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-cyan-200 drop-shadow-sm">
+                        児島・鷲羽山 <span class="text-cyan-400 font-light">|</span> 瀬戸内絶景ドライブ
+                    </h1>
+
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed font-normal">
+                        多島美と大橋のパノラマ、港町の絶景と温泉ホテルを堪能するカスタマイズ旅プラン
+                    </p>
+                </div>
+
+                <div class="w-full lg:w-auto bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl flex flex-col sm:flex-row lg:flex-col justify-between items-center gap-4 min-w-[260px]">
+                    <div class="text-center sm:text-left lg:text-center w-full">
+                        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-1">Total Trip Budget</span>
+                        <div class="flex items-baseline justify-center sm:justify-start lg:justify-center gap-1">
+                            <span id="displayTotalCost" class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">137,200</span>
+                            <span class="text-sm text-slate-300 font-semibold">円</span>
+                        </div>
+                        <span id="displayTravelerCountText" class="text-xs text-slate-400 mt-1 block">（2名分・合計概算）</span>
+                    </div>
+                    <div class="w-full pt-3 border-t border-slate-800 text-center">
+                        <span id="displayPerPersonCost" class="inline-block px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-xs rounded-lg shadow-md">
+                            1人あたり 68,600円
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 flex justify-around py-3.5 text-xs md:text-sm font-semibold text-slate-300 overflow-x-auto whitespace-nowrap gap-4">
+            <a href="#summary" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-calculator text-cyan-500"></i> 費用分析・予算編集</a>
+            <a href="#itinerary" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-route text-cyan-500"></i> 行程編集＆ロードマップ</a>
+            <a href="#powerspots" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-torii-gate text-cyan-500"></i> 周辺パワースポット</a>
+            <a href="#highlights" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-star text-cyan-500"></i> 注目スポット</a>
+            <a href="#gourmet" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-utensils text-cyan-500"></i> 人気グルメ</a>
+            <a href="#links" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-rose-400"></i> Map＆検索リンク</a>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+
+        <section id="summary" class="scroll-mt-20 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-l-4 border-cyan-600 pl-3">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">旅費の試算・カスタム計算</h2>
+                    <p class="text-slate-600 text-sm mt-1">宿泊費、高速・燃料費、食費、観光船代などの内訳です。金額や人数を自由に変更して再試算できます。</p>
+                </div>
+                <button id="toggleEditBtn" onclick="toggleEditPanel()" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-all">
+                    <i class="fa-solid fa-sliders"></i> 金額・人数を編集する
+                </button>
+            </div>
+
+            <div id="editBudgetPanel" class="hidden bg-slate-900 text-white p-6 rounded-2xl shadow-xl border border-cyan-500/30 space-y-5">
+                <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                    <h3 class="text-base font-bold text-cyan-300 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i> 予算・金額の再計算フォーム
+                    </h3>
+                    <div class="flex items-center gap-2">
+                        <button onclick="resetBudgetToDefault()" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg border border-slate-700 transition-colors">
+                            <i class="fa-solid fa-rotate-left"></i> 初期値に戻す
+                        </button>
+                        <button onclick="toggleEditPanel()" class="text-slate-400 hover:text-white px-2 text-lg">✕</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">旅行人数（名）</label>
+                        <input type="number" id="inputTravelers" value="2" min="1" max="10" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">1日目 宿 (児島ホテル)</label>
+                        <input type="number" id="inputHotel1" value="21000" step="500" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-cyan-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">2日目 宿 (風籠)</label>
+                        <input type="number" id="inputHotel2" value="52000" step="500" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-cyan-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">高速道路料金 (往復)</label>
+                        <input type="number" id="inputToll" value="19000" step="500" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-amber-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">ガソリン代 (概算)</label>
+                        <input type="number" id="inputGas" value="12000" step="500" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-amber-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">食事代 (全員分合計)</label>
+                        <input type="number" id="inputFood" value="20000" step="1000" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-orange-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">雑費・予備費 (お土産等)</label>
+                        <input type="number" id="inputExtra" value="10000" step="1000" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-purple-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">観光船乗船料 (全員分合計)</label>
+                        <input type="number" id="inputBoat" value="3200" step="400" oninput="updateCalculations()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-teal-300 font-bold focus:border-cyan-400 focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center space-x-3">
+                    <div class="p-2.5 bg-sky-100 text-sky-700 rounded-lg text-xl">🏨</div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">宿泊費（2泊合計）</p>
+                        <p id="cardHotelTotal" class="text-lg font-bold text-slate-800">73,000円</p>
+                        <p class="text-[10px] text-teal-600">クーポン適用後</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center space-x-3">
+                    <div class="p-2.5 bg-amber-100 text-amber-700 rounded-lg text-xl">🚗</div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">交通費（高速＋燃料）</p>
+                        <p id="cardTrafficTotal" class="text-lg font-bold text-slate-800">31,000円</p>
+                        <p id="cardTrafficSubtext" class="text-[10px] text-slate-400">高速1.9万 / 燃料1.2万</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center space-x-3">
+                    <div class="p-2.5 bg-orange-100 text-orange-700 rounded-lg text-xl">🍽️</div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">食事代（グループ）</p>
+                        <p id="cardFoodTotal" class="text-lg font-bold text-slate-800">20,000円</p>
+                        <p id="cardFoodPerPerson" class="text-[10px] text-slate-400">10,000円 × 2名</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center space-x-3">
+                    <div class="p-2.5 bg-purple-100 text-purple-700 rounded-lg text-xl">🛍️</div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">雑費・予備費</p>
+                        <p id="cardExtraTotal" class="text-lg font-bold text-slate-800">10,000円</p>
+                        <p class="text-[10px] text-slate-400">お土産・カフェ等</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center space-x-3">
+                    <div class="p-2.5 bg-teal-100 text-teal-700 rounded-lg text-xl">🚢</div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">観光船（グループ）</p>
+                        <p id="cardBoatTotal" class="text-lg font-bold text-slate-800">3,200円</p>
+                        <p id="cardBoatPerPerson" class="text-[10px] text-slate-400">1,600円 × 2名</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">費用構成比率（合計）</h3>
+                    <p class="text-xs text-slate-500 mb-4">宿泊費・交通費・食費・雑費・観光船費の割合のリアルタイム可視化です。</p>
+                    <div class="chart-container">
+                        <canvas id="costDonutChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">項目別 支出詳細比較（円）</h3>
+                    <p class="text-xs text-slate-500 mb-4">各目的ごとの具体的な支払額の比較データです。</p>
+                    <div class="chart-container">
+                        <canvas id="costBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="itinerary" class="scroll-mt-20 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-l-4 border-cyan-600 pl-3">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">2泊3日 詳細ロードマップ ＆ スケジュール編集</h2>
+                    <p class="text-slate-600 text-sm mt-1">1日目～3日目の行程や時間を自由にカスタマイズ・追加・編集できます。</p>
+                </div>
+                <button onclick="toggleItineraryEditPanel()" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-slate-950 font-black text-xs rounded-xl shadow-md transition-all">
+                    <i class="fa-solid fa-calendar-pen"></i> スケジュール（1～3日目）を編集する
+                </button>
+            </div>
+
+            <div id="editItineraryPanel" class="hidden bg-slate-900 text-white p-6 rounded-2xl shadow-xl border border-amber-500/30 space-y-6">
+                <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                    <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i> 1日目～3日目 スケジュール編集パネル
+                    </h3>
+                    <div class="flex items-center gap-2">
+                        <button onclick="resetItineraryToDefault()" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg border border-slate-700 transition-colors">
+                            <i class="fa-solid fa-rotate-left"></i> 行程を初期化
+                        </button>
+                        <button onclick="toggleItineraryEditPanel()" class="text-slate-400 hover:text-white px-2 text-lg">✕</button>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 border-b border-slate-800 pb-2 overflow-x-auto">
+                    <button id="tabBtnDay1" onclick="switchItineraryTab('day1')" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-colors bg-cyan-600 text-white">1日目 (DAY 1)</button>
+                    <button id="tabBtnDay2" onclick="switchItineraryTab('day2')" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-colors bg-slate-800 text-slate-400 hover:text-white">2日目 (DAY 2)</button>
+                    <button id="tabBtnDay3" onclick="switchItineraryTab('day3')" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-colors bg-slate-800 text-slate-400 hover:text-white">3日目 (DAY 3)</button>
+                </div>
+
+                <div id="itineraryEditorForm" class="space-y-4">
+                </div>
+
+                <div class="flex justify-between items-center pt-3 border-t border-slate-800">
+                    <button onclick="addItineraryItem()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-plus"></i> この日に予定を追加
+                    </button>
+                    <button onclick="toggleItineraryEditPanel()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg border border-slate-700 transition-colors">
+                        完了（閉じる）
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-slate-100">
+                        <span class="px-3 py-1 bg-cyan-700 text-white font-bold text-sm rounded-lg">DAY 1</span>
+                        <h3 class="text-lg font-bold text-slate-800">児島到着と鷲羽山の絶景カフェ散策</h3>
+                    </div>
+                    <div id="day1TimelineContainer" class="relative pl-8 timeline-line space-y-6"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-slate-100">
+                        <span class="px-3 py-1 bg-teal-600 text-white font-bold text-sm rounded-lg">DAY 2</span>
+                        <h3 class="text-lg font-bold text-slate-800">瀬戸大橋クルーズ・下津井情緒と温泉リゾート</h3>
+                    </div>
+                    <div id="day2TimelineContainer" class="relative pl-8 timeline-line space-y-6"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-slate-100">
+                        <span class="px-3 py-1 bg-amber-600 text-white font-bold text-sm rounded-lg">DAY 3</span>
+                        <h3 class="text-lg font-bold text-slate-800">児島IC ～ 金津IC 高速道路帰路ドライブ</h3>
+                    </div>
+                    <div id="day3TimelineContainer" class="relative pl-8 timeline-line space-y-6"></div>
+                </div>
+
+                <div class="bg-indigo-950 text-white p-6 rounded-2xl shadow-md border border-indigo-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-cyan-300 flex items-center gap-2">
+                            <i class="fa-solid fa-note-sticky text-amber-400"></i> 旅のメモ・追加の立ち寄り先候補（自由メモ）
+                        </h3>
+                        <span class="text-[10px] text-slate-400">自動保存</span>
+                    </div>
+                    <textarea id="customMemoText" rows="3" oninput="saveMemo()" placeholder="例：お土産に甘月堂の大福を買う、吉備SAでマスカットソフトを食べる、ガソリンは児島IC手前で満タンにするなど..." class="w-full bg-slate-900 border border-indigo-700 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 leading-relaxed"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section id="powerspots" class="scroll-mt-20 space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3">児島発・往復1時間半圏内の観光地＆パワースポット</h2>
+                <p class="text-slate-600 text-sm mt-1">児島滞在中やスキマ時間に片道15分〜40分前後で足を伸ばせる厳選おすすめスポットです。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 font-bold text-xs rounded-md">車で約15分（片道）</span>
+                            <span class="text-xs text-amber-600 font-bold">厄除け・縁結び</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">由加神社本宮 ＆ 蓮台寺</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            児島のお膝元・由加山に鎮座する厄除け総本山。讃岐こんぴらさんとの「両参り」で知られる県内有数のパワースポットです。備前焼の大鳥居やからくりおみくじも楽しめます。
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap text-xs">
+                        <span class="text-slate-500 font-semibold">見どころ: 備前焼鳥居・両参り</span>
+                        <div class="flex gap-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=由加神社本宮" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=由加神社本宮" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-cyan-100 text-cyan-800 font-bold text-xs rounded-md">車で約40分（片道）</span>
+                            <span class="text-xs text-cyan-600 font-bold">災難除・桃太郎原点</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">吉備津神社（きびつじんじゃ）</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            桃太郎伝説（温羅退治）の舞台。国宝に指定された大迫力の「吉備津造り」本殿と、自然の地形に沿ってまっすぐ伸びる全長360mの木造大回廊は圧巻の美しさです。
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap text-xs">
+                        <span class="text-slate-500 font-semibold">見どころ: 国宝本殿・360m大回廊</span>
+                        <div class="flex gap-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=吉備津神社" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=吉備津神社" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-teal-100 text-teal-800 font-bold text-xs rounded-md">車で約30分（片道）</span>
+                            <span class="text-xs text-teal-600 font-bold">交通安全・海の神</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">阿智神社（倉敷美観地区）</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            倉敷美観地区を見下ろす鶴形山山頂に位置。美観地区散策とセットで参拝でき、境内の高台からは白壁の美しい街並みを一望できます。
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap text-xs">
+                        <span class="text-slate-500 font-semibold">見どころ: 美観地区一望・阿知の藤</span>
+                        <div class="flex gap-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=阿智神社+倉敷" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=阿智神社+倉敷" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 font-bold text-xs rounded-md">車で約15分（片道・高速）</span>
+                            <span class="text-xs text-indigo-600 font-bold">海洋絶景・雄大橋</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">与島パーキングエリア</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            瀬戸大橋の真っ只中に浮かぶ与島へ立ち寄り。真上を通過する電車や橋脚を真下から見上げる大迫力の景観と瀬戸内の爽やかなパワーを感じられます。
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap text-xs">
+                        <span class="text-slate-500 font-semibold">見どころ: 瀬戸大橋直下・展望台</span>
+                        <div class="flex gap-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=与島パーキングエリア" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=与島パーキングエリア" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights" class="scroll-mt-20 space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3">注目スポット詳細情報</h2>
+                <p class="text-slate-600 text-sm mt-1">旅のメインとなる体験スポットと立ち寄りカフェの重要データです。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 p-4 text-white flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded">2日目 10:00便推奨</span>
+                            <h3 class="text-xl font-bold mt-1">児島 瀬戸大橋観光船（遊覧船）</h3>
+                        </div>
+                        <a href="https://www.setoohashikankosen.com/" target="_blank" class="px-3 py-1 bg-white text-cyan-800 text-xs font-bold rounded shadow hover:bg-slate-100 transition-colors">HPを見る ↗</a>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            瀬戸大橋を真下から見上げる大迫力の45分クルージング。橋の巨大な橋脚や瀬戸内海の多島美を至近距離で楽しめます。
+                        </p>
+
+                        <div class="bg-slate-50 p-4 rounded-lg space-y-2 text-xs">
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">乗船場所</span>
+                                <span class="font-semibold text-slate-800">児島観光港（無料Pあり）</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">所要時間</span>
+                                <span class="font-semibold text-slate-800">約 45分</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">大人料金</span>
+                                <span class="font-semibold text-teal-700">1,600円 / 名</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">出航予定（予約不要）</span>
+                                <span class="font-semibold text-slate-800">10:00 / 11:00 / 13:00 / 14:00</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex items-center justify-between gap-2 border-t border-slate-100 text-xs">
+                            <p class="text-[11px] text-amber-600 font-medium">※ 3名以上乗船で出航</p>
+                            <div class="flex gap-2">
+                                <a href="https://www.google.com/maps/search/?api=1&query=児島観光港+瀬戸大橋観光船" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                                <a href="https://www.google.com/search?q=瀬戸大橋周遊観光船" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-teal-600 to-emerald-600 p-4 text-white flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded">1・2日目 絶景カフェ</span>
+                            <h3 class="text-xl font-bold mt-1">KOTKA SETOUCHI（コトカ）</h3>
+                        </div>
+                        <a href="https://www.instagram.com/kotka_setouchi/" target="_blank" class="px-3 py-1 bg-white text-teal-700 text-xs font-bold rounded shadow hover:bg-teal-50 transition-colors">Instagram ↗</a>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            鷲羽山ビジターセンター内にオープンした注目の日本茶カフェ。一面の大窓から瀬戸内海と瀬戸大橋の雄大なパノラマを一望できます。
+                        </p>
+
+                        <div class="bg-slate-50 p-4 rounded-lg space-y-2 text-xs">
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">所在地</span>
+                                <span class="font-semibold text-slate-800">鷲羽山ビジターセンター内</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">アクセス</span>
+                                <span class="font-semibold text-slate-800">第2展望台駐車場より徒歩5〜7分</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-1.5">
+                                <span class="text-slate-500">営業時間</span>
+                                <span class="font-semibold text-slate-800">10:00 ～ 17:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">おすすめメニュー</span>
+                                <span class="font-semibold text-teal-700">厳選日本茶・藍茶塩ソーダ・テリーヌ</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex items-center justify-between gap-2 border-t border-slate-100 text-xs">
+                            <p class="text-[11px] text-teal-600 font-medium">※ 展望台散策とセットで快適</p>
+                            <div class="flex gap-2">
+                                <a href="https://www.google.com/maps/search/?api=1&query=鷲羽山ビジターセンター+KOTKA" target="_blank" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                                <a href="https://www.google.com/search?q=KOTKA+SETOUCHI" target="_blank" class="px-2.5 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gourmet" class="scroll-mt-20 space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900 border-l-4 border-amber-500 pl-3">倉敷・児島エリアの人気グルメスポット</h2>
+                <p class="text-slate-600 text-sm mt-1">地元で愛される名物料理から絶品スイーツまで、ランチやカフェに最適なおすすめ店です。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="px-2 py-0.5 bg-orange-100 text-orange-800 text-[10px] font-bold rounded">倉敷・児島名物</span>
+                            <span class="text-xs text-orange-600 font-bold">うどん発祥店</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">ぶっかけうどん ふるいち</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            倉敷名物「ぶっかけうどん」の発祥店。濃いめの甘辛つゆにコシのあるタレが絡む絶品。児島駅前店や美観地区近くでも楽しめます。
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://marubu.com/" target="_blank" class="block text-xs text-center font-bold py-1.5 bg-orange-50 hover:bg-orange-100 text-orange-700 rounded-lg border border-orange-200 transition-colors">
+                            公式サイトでメニューを見る ↗
+                        </a>
+                        <div class="flex justify-between gap-2 text-xs">
+                            <a href="https://www.google.com/maps/search/?api=1&query=ぶっかけうどん+ふるいち+児島" target="_blank" class="w-1/2 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=ぶっかけうどん+ふるいち+児島" target="_blank" class="w-1/2 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded">倉敷美観地区</span>
+                            <span class="text-xs text-amber-600 font-bold">行列の洋食名店</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">名代 とんかつ かっぱ</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            倉敷商店街にある大人気の老舗洋食店。特製デミグラスソースがたっぷりかかったサクサクの「名代とんかつ」は一度食べたら病みつきになる味わい。
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.kurashiki-tabi.jp/gourmet/304/" target="_blank" class="block text-xs text-center font-bold py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-700 rounded-lg border border-amber-200 transition-colors">
+                            倉敷観光WEB紹介を見る ↗
+                        </a>
+                        <div class="flex justify-between gap-2 text-xs">
+                            <a href="https://www.google.com/maps/search/?api=1&query=名代+とんかつ+かっぱ+倉敷" target="_blank" class="w-1/2 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=名代+とんかつ+かっぱ+倉敷" target="_blank" class="w-1/2 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="px-2 py-0.5 bg-pink-100 text-pink-800 text-[10px] font-bold rounded">美観地区パフェ</span>
+                            <span class="text-xs text-pink-600 font-bold">特産フルーツ</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">くらしき桃子</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            岡山の新鮮なフルーツ（白桃・マスカット・イチゴ等）をふんだんに使用した贅沢パフェ＆ジェラートの人気店。美観地区内に複数店舗展開。
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://kurashikimomoko.jp/" target="_blank" class="block text-xs text-center font-bold py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 rounded-lg border border-pink-200 transition-colors">
+                            公式サイトを見る ↗
+                        </a>
+                        <div class="flex justify-between gap-2 text-xs">
+                            <a href="https://www.google.com/maps/search/?api=1&query=くらしき桃子+倉敷" target="_blank" class="w-1/2 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=くらしき桃子" target="_blank" class="w-1/2 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="px-2 py-0.5 bg-teal-100 text-teal-800 text-[10px] font-bold rounded">下津井港</span>
+                            <span class="text-xs text-teal-600 font-bold">名物タコ料理</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">下津井タコ料理（ふく仙・蔵等）</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            下津井海峡の潮流でもまれた歯ごたえ抜群の「下津井タコ」。刺身・タコ飯・天ぷらなど、下津井港周辺の食事処（ふく仙やむかし下津井回船問屋 蔵など）で堪能できます。
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.kurashiki-tabi.jp/gourmet/gourmet-cat/shimotsui-tako/" target="_blank" class="block text-xs text-center font-bold py-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 rounded-lg border border-teal-200 transition-colors">
+                            下津井タコ料理店舗一覧 ↗
+                        </a>
+                        <div class="flex justify-between gap-2 text-xs">
+                            <a href="https://www.google.com/maps/search/?api=1&query=下津井+タコ料理" target="_blank" class="w-1/2 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=下津井+タコ料理" target="_blank" class="w-1/2 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-3 md:col-span-2">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="px-2 py-0.5 bg-purple-100 text-purple-800 text-[10px] font-bold rounded">児島和菓子</span>
+                            <span class="text-xs text-purple-600 font-bold">名物スイーツ</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">甘月堂（かんげつどう）</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            児島駅近くにある伝説的なフルーツ大福の専門店。いちご・みかん・キウイ・生チョコ・チーズなど、10〜20種類以上のバラエティ豊かな絶品大福がずらりと並びます。ドライブのお供やお土産に最適。
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.kurashiki-tabi.jp/see/1231/" target="_blank" class="block text-xs text-center font-bold py-1.5 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-lg border border-purple-200 transition-colors">
+                            倉敷観光WEBで詳細を見る ↗
+                        </a>
+                        <div class="flex justify-between gap-2 text-xs">
+                            <a href="https://www.google.com/maps/search/?api=1&query=甘月堂+児島" target="_blank" class="w-1/2 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                            <a href="https://www.google.com/search?q=甘月堂+児島" target="_blank" class="w-1/2 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="links" class="scroll-mt-20 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3">旅行スポット Map ＆ Google検索ハブ</h2>
+                <p class="text-xs text-slate-500 mt-1">ワンクリックでGoogle Mapナビゲーションや最新のGoogle検索結果を閲覧できます。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">せとうち児島ホテル（1日目宿）</div>
+                    <div class="flex gap-2">
+                        <a href="https://www.kojimahotel.com/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=せとうち児島ホテル" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=せとうち児島ホテル" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">WASHU BLUE RESORT 風籠（2日目宿）</div>
+                    <div class="flex gap-2">
+                        <a href="https://www.kasago.jp/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=WASHU+BLUE+RESORT+風籠" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=WASHU+BLUE+RESORT+風籠" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">瀬戸大橋周遊観光船</div>
+                    <div class="flex gap-2">
+                        <a href="https://www.setoohashikankosen.com/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=児島観光港+瀬戸大橋観光船" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=瀬戸大橋周遊観光船" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">KOTKA SETOUCHI（日本茶カフェ）</div>
+                    <div class="flex gap-2">
+                        <a href="https://www.instagram.com/kotka_setouchi/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">Instagram ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=鷲羽山ビジターセンター+KOTKA" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=KOTKA+SETOUCHI" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">由加神社本宮 ＆ 蓮台寺</div>
+                    <div class="flex gap-2">
+                        <a href="https://yugasan.or.jp/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=由加神社本宮" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=由加神社本宮" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
+                    <div class="font-bold text-slate-800">吉備津神社（国宝本殿・大回廊）</div>
+                    <div class="flex gap-2">
+                        <a href="https://www.kibitujinja.com/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=吉備津神社" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                        <a href="https://www.google.com/search?q=吉備津神社" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-xs text-slate-400">
+        <p>児島・鷲羽山 2泊3日 ドライブ旅行ロードマップ &copy; 2026</p>
+    </footer>
+
+    <script>
+        function formatLabel(str) {
+            if (typeof str !== 'string') return str;
+            if (str.length <= 16) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 0 ? lines : str;
+        }
+
+        const rawLabels = [
+            '1日目 宿泊費 (児島ホテル)',
+            '2日目 宿泊費 (風籠)',
+            'ガソリン代 (概算)',
+            '高速道路料金 (往復)',
+            '食事代 (グループ合計)',
+            '雑費・予備費 (お土産等)',
+            '瀬戸大橋観光船 (全員)'
+        ];
+
+        const formattedLabels = rawLabels.map(l => formatLabel(l));
+
+        const defaultBudget = {
+            travelers: 2,
+            hotel1: 21000,
+            hotel2: 52000,
+            toll: 19000,
+            gas: 12000,
+            food: 20000,
+            extra: 10000,
+            boat: 3200
+        };
+
+        let currentBudget = { ...defaultBudget };
+
+        const defaultItinerary = {
+            day1: [
+                { time: '07:00', title: '出発（北陸自動車道 ～ 敦賀IC）', desc: '敦賀ICを下り、国道27号線（一般道）で若狭・小浜方面を抜け舞鶴へドライブ。', color: 'bg-cyan-600', ring: 'ring-cyan-100' },
+                { time: '09:45', title: '舞鶴東/西ICより高速道路進入', desc: '舞鶴若狭道 ～ 吉川JCT ～ 中国道 ～ 山陽道 ～ 倉敷JCT ～ 瀬戸中央道を進む。（西紀SAや吉備SA等で休憩）', color: 'bg-cyan-600', ring: 'ring-cyan-100' },
+                { time: '13:30', title: '児島IC 到着', desc: '瀬戸中央自動車道・児島ICを通過して児島エリアへ進入。', color: 'bg-cyan-600', ring: 'ring-cyan-100' },
+                { time: '14:00 - 16:30', title: '鷲羽山展望台＆KOTKA SETOUCHI（コトカ）', desc: 'ビジターセンター内の話題の日本茶カフェへ。海と瀬戸大橋を望みながらこだわりの日本茶とスイーツを満喫。周辺遊歩道のゆったり散策も。', mapQuery: '鷲羽山ビジターセンター+KOTKA', searchQuery: 'KOTKA+SETOUCHI', color: 'bg-orange-500', ring: 'ring-orange-100', timeColor: 'text-orange-600' },
+                { time: '17:00', title: 'せとうち児島ホテル チェックイン', desc: '高台からの夕景鑑賞。児島駅周辺または館内にて夕食。', mapQuery: 'せとうち児島ホテル', searchQuery: 'せとうち児島ホテル', color: 'bg-teal-500', ring: 'ring-teal-100', timeColor: 'text-teal-600' }
+            ],
+            day2: [
+                { time: '08:30 - 09:30', title: '朝食後チェックアウト → 児島観光港へ移動', desc: 'ホテル朝食後、車で児島観光港へ移動（約10分）。', color: 'bg-teal-500', ring: 'ring-teal-100' },
+                { time: '10:00 - 10:45', title: '瀬戸大橋周遊観光船 クルージング（約45分）', desc: '海上から見上げる瀬戸大橋の雄姿と瀬戸内の多島美を堪能。', mapQuery: '児島観光港+瀬戸大橋観光船', searchQuery: '瀬戸大橋周遊観光船', color: 'bg-teal-500', ring: 'ring-teal-100', timeColor: 'text-teal-600' },
+                { time: '11:15 - 12:15', title: '下津井の古い町並み巡り', desc: '「むかし下津井回船問屋」の見学や港町風情の残る路地を散策。', mapQuery: 'むかし下津井回船問屋', searchQuery: 'むかし下津井回船問屋', color: 'bg-indigo-500', ring: 'ring-indigo-100', timeColor: 'text-indigo-600' },
+                { time: '14:00 - 16:00', title: '午後観光：自由枠（当日決定）', desc: '当日の天候や気分に合わせて調整可能な立ち寄り枠。倉敷美観地区散策（車で約35分）や由加神社本宮参拝など自由です。', isOptionSlot: true, color: 'bg-amber-500', ring: 'ring-amber-100', timeColor: 'text-amber-700' },
+                { time: '16:30', title: 'WASHU BLUE RESORT 風籠～kasago～ チェックイン', desc: '屋上露天風呂「天の間」から夕暮れの瀬戸内を眺望。こだわりのブッフェ/会席料理を楽しむ。', mapQuery: 'WASHU+BLUE+RESORT+風籠', searchQuery: 'WASHU+BLUE+RESORT+風籠', color: 'bg-indigo-600', ring: 'ring-indigo-100', timeColor: 'text-indigo-600' }
+            ],
+            day3: [
+                { time: '09:00 - 10:00', title: '朝風呂・朝食 → チェックアウト', desc: '絶景温泉と朝食を楽しんだ後、帰路の準備をしてチェックアウト。', color: 'bg-slate-400', ring: 'ring-slate-100' },
+                { time: '10:15', title: '児島ICより高速道路進入', desc: '児島IC（瀬戸中央自動車道）進入 ～ 倉敷JCT ～ 山陽自動車道 ～ 中国自動車道 ～ 吉川JCT ～ 舞鶴若狭自動車道 ～ 敦賀JCT ～ 北陸自動車道ルートへ。', color: 'bg-amber-500', ring: 'ring-amber-100', timeColor: 'text-amber-600' },
+                { time: '12:00 - 13:00', title: '途中SA（吉備SA・西紀SA等）にて昼食・お土産休憩', desc: '山陽道や舞鶴若狭道のサービスエリアで各地的名物グルメを楽しみ、限定お土産を購入しながらリフレッシュ。', color: 'bg-cyan-600', ring: 'ring-cyan-100', timeColor: 'text-cyan-600' },
+                { time: '15:30 - 16:00', title: '金津IC 下車 → 無事帰着', desc: '北陸自動車道・金津ICを下り、自宅へ無事帰着。', color: 'bg-emerald-500', ring: 'ring-emerald-100', timeColor: 'text-emerald-600' }
+            ]
+        };
+
+        let currentItinerary = JSON.parse(JSON.stringify(defaultItinerary));
+        let activeItineraryTab = 'day1';
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                },
+                label: function(context) {
+                    let val = context.raw || 0;
+                    return ' ' + val.toLocaleString() + ' 円';
+                }
+            }
+        };
+
+        let donutChart, barChart;
+
+        function initCharts() {
+            const ctxDonut = document.getElementById('costDonutChart').getContext('2d');
+            donutChart = new Chart(ctxDonut, {
+                type: 'doughnut',
+                data: {
+                    labels: formattedLabels,
+                    datasets: [{
+                        data: getCostValuesArray(),
+                        backgroundColor: [
+                            '#0284C7',
+                            '#0D9488',
+                            '#F59E0B',
+                            '#6366F1',
+                            '#F97316',
+                            '#8B5CF6',
+                            '#14B8A6'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: tooltipConfig
+                    }
+                }
+            });
+
+            const ctxBar = document.getElementById('costBarChart').getContext('2d');
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: formattedLabels,
+                    datasets: [{
+                        label: '支出額 (円)',
+                        data: getCostValuesArray(),
+                        backgroundColor: '#0284C7',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString() + '円';
+                                },
+                                font: { size: 10 }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: { size: 10 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: tooltipConfig
+                    }
+                }
+            });
+        }
+
+        function getCostValuesArray() {
+            return [
+                currentBudget.hotel1,
+                currentBudget.hotel2,
+                currentBudget.gas,
+                currentBudget.toll,
+                currentBudget.food,
+                currentBudget.extra,
+                currentBudget.boat
+            ];
+        }
+
+        function toggleEditPanel() {
+            const panel = document.getElementById('editBudgetPanel');
+            panel.classList.toggle('hidden');
+        }
+
+        function updateCalculations() {
+            currentBudget.travelers = parseInt(document.getElementById('inputTravelers').value) || 1;
+            currentBudget.hotel1 = parseInt(document.getElementById('inputHotel1').value) || 0;
+            currentBudget.hotel2 = parseInt(document.getElementById('inputHotel2').value) || 0;
+            currentBudget.toll = parseInt(document.getElementById('inputToll').value) || 0;
+            currentBudget.gas = parseInt(document.getElementById('inputGas').value) || 0;
+            currentBudget.food = parseInt(document.getElementById('inputFood').value) || 0;
+            currentBudget.extra = parseInt(document.getElementById('inputExtra').value) || 0;
+            currentBudget.boat = parseInt(document.getElementById('inputBoat').value) || 0;
+
+            const total = currentBudget.hotel1 + currentBudget.hotel2 + currentBudget.toll + currentBudget.gas + currentBudget.food + currentBudget.extra + currentBudget.boat;
+            const perPerson = Math.round(total / currentBudget.travelers);
+
+            document.getElementById('displayTotalCost').innerText = total.toLocaleString();
+            document.getElementById('displayTravelerCountText').innerText = `（${currentBudget.travelers}名分・合計概算）`;
+            document.getElementById('displayPerPersonCost').innerText = `1人あたり ${perPerson.toLocaleString()}円`;
+
+            document.getElementById('cardHotelTotal').innerText = (currentBudget.hotel1 + currentBudget.hotel2).toLocaleString() + '円';
+            document.getElementById('cardTrafficTotal').innerText = (currentBudget.toll + currentBudget.gas).toLocaleString() + '円';
+            document.getElementById('cardTrafficSubtext').innerText = `高速 ${(currentBudget.toll / 10000).toFixed(1)}万 / 燃料 ${(currentBudget.gas / 10000).toFixed(1)}万`;
+            document.getElementById('cardFoodTotal').innerText = currentBudget.food.toLocaleString() + '円';
+            document.getElementById('cardFoodPerPerson').innerText = `${Math.round(currentBudget.food / currentBudget.travelers).toLocaleString()}円 × ${currentBudget.travelers}名`;
+            document.getElementById('cardExtraTotal').innerText = currentBudget.extra.toLocaleString() + '円';
+            document.getElementById('cardBoatTotal').innerText = currentBudget.boat.toLocaleString() + '円';
+            document.getElementById('cardBoatPerPerson').innerText = `${Math.round(currentBudget.boat / currentBudget.travelers).toLocaleString()}円 × ${currentBudget.travelers}名`;
+
+            const badge = document.getElementById('customBudgetBadge');
+            const isCustom = JSON.stringify(currentBudget) !== JSON.stringify(defaultBudget);
+            if (isCustom) {
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            if (donutChart && barChart) {
+                const updatedVals = getCostValuesArray();
+                donutChart.data.datasets[0].data = updatedVals;
+                donutChart.update();
+
+                barChart.data.datasets[0].data = updatedVals;
+                barChart.update();
+            }
+
+            localStorage.setItem('kojima_trip_budget', JSON.stringify(currentBudget));
+        }
+
+        function resetBudgetToDefault() {
+            currentBudget = { ...defaultBudget };
+            document.getElementById('inputTravelers').value = defaultBudget.travelers;
+            document.getElementById('inputHotel1').value = defaultBudget.hotel1;
+            document.getElementById('inputHotel2').value = defaultBudget.hotel2;
+            document.getElementById('inputToll').value = defaultBudget.toll;
+            document.getElementById('inputGas').value = defaultBudget.gas;
+            document.getElementById('inputFood').value = defaultBudget.food;
+            document.getElementById('inputExtra').value = defaultBudget.extra;
+            document.getElementById('inputBoat').value = defaultBudget.boat;
+            updateCalculations();
+        }
+
+        function renderItineraryTimeline() {
+            ['day1', 'day2', 'day3'].forEach(dayKey => {
+                const container = document.getElementById(dayKey + 'TimelineContainer');
+                if (!container) return;
+
+                const list = currentItinerary[dayKey] || [];
+                let html = '';
+
+                list.forEach((item, index) => {
+                    const dotBg = item.color || 'bg-cyan-600';
+                    const dotRing = item.ring || 'ring-cyan-100';
+                    const timeClr = item.timeColor || 'text-slate-400';
+
+                    if (item.isOptionSlot) {
+                        html += `
+                        <div class="relative bg-amber-50/70 p-4 rounded-xl border border-amber-200/80 shadow-sm">
+                            <div class="absolute -left-8 top-5 w-4 h-4 rounded-full ${dotBg} ring-4 ${dotRing}"></div>
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <div class="text-xs ${timeClr} font-bold">${escapeHtml(item.time)} <span class="ml-1.5 px-2 py-0.5 bg-amber-200 text-amber-900 text-[10px] font-bold rounded-md">自由・選択枠</span></div>
+                                <span class="text-[11px] text-amber-800 font-semibold"><i class="fa-solid fa-pen"></i> 行先候補の切り替え</span>
+                            </div>
+                            <h4 id="displayDay2OptionTitle" class="text-sm font-bold text-slate-800 mt-1">${escapeHtml(item.title)}</h4>
+                            <p id="displayDay2OptionText" class="text-xs text-slate-600 mt-0.5">${escapeHtml(item.desc)}</p>
+
+                            <div class="mt-3 pt-3 border-t border-amber-200/60 space-y-2">
+                                <label class="block text-[11px] font-bold text-slate-700">【ワンクリックで候補を選択】</label>
+                                <div class="flex flex-wrap gap-1.5 text-xs">
+                                    <button onclick="setDay2Option('倉敷美観地区散策＆阿智神社参拝', '倉敷美観地区の白壁の町並みをゆったり散策し、高台の阿智神社で参拝（車で片道約35分）。')" class="px-2.5 py-1 bg-white hover:bg-amber-100 border border-amber-300 rounded text-amber-900 font-medium transition-colors">📍 倉敷美観地区</button>
+                                    <button onclick="setDay2Option('由加神社本宮 ＆ 蓮台寺参拝', '厄除け総本山・由加神社本宮へ。備前焼の大鳥居やからくりおみくじを満喫（車で片道約15分）。')" class="px-2.5 py-1 bg-white hover:bg-amber-100 border border-amber-300 rounded text-amber-900 font-medium transition-colors">⛩️ 由加神社本宮</button>
+                                    <button onclick="setDay2Option('与島パーキングエリア 絶景ドライブ', '瀬戸大橋を渡り与島PAへ。巨橋を真下から仰ぎ見る大パノラマと海風を満喫（車で片道約15分）。')" class="px-2.5 py-1 bg-white hover:bg-amber-100 border border-amber-300 rounded text-amber-900 font-medium transition-colors">🌉 与島PA絶景</button>
+                                </div>
+                            </div>
+                        </div>`;
+                    } else {
+                        let linksHtml = '';
+                        if (item.mapQuery || item.searchQuery) {
+                            linksHtml = `<div class="flex gap-2 mt-2">`;
+                            if (item.mapQuery) {
+                                linksHtml += `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}" target="_blank" class="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 bg-rose-50 text-rose-600 border border-rose-200 rounded hover:bg-rose-100 transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>`;
+                            }
+                            if (item.searchQuery) {
+                                linksHtml += `<a href="https://www.google.com/search?q=${encodeURIComponent(item.searchQuery)}" target="_blank" class="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 bg-sky-50 text-sky-600 border border-sky-200 rounded hover:bg-sky-100 transition-colors"><i class="fa-solid fa-magnifying-glass"></i> Google検索</a>`;
+                            }
+                            linksHtml += `</div>`;
+                        }
+
+                        html += `
+                        <div class="relative">
+                            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full ${dotBg} ring-4 ${dotRing}"></div>
+                            <div class="text-xs ${timeClr} font-semibold">${escapeHtml(item.time)}</div>
+                            <h4 class="text-sm font-bold text-slate-800">${escapeHtml(item.title)}</h4>
+                            <p class="text-xs text-slate-600 mt-0.5">${escapeHtml(item.desc)}</p>
+                            ${linksHtml}
+                        </div>`;
+                    }
+                });
+
+                container.innerHTML = html;
+            });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        function toggleItineraryEditPanel() {
+            const panel = document.getElementById('editItineraryPanel');
+            panel.classList.toggle('hidden');
+            if (!panel.classList.contains('hidden')) {
+                renderItineraryEditorForm();
+            }
+        }
+
+        function switchItineraryTab(dayKey) {
+            activeItineraryTab = dayKey;
+            ['day1', 'day2', 'day3'].forEach(d => {
+                const btn = document.getElementById('tabBtn' + d.charAt(0).toUpperCase() + d.slice(1));
+                if (d === dayKey) {
+                    btn.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-colors bg-amber-500 text-slate-950 shadow";
+                } else {
+                    btn.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-colors bg-slate-800 text-slate-400 hover:text-white";
+                }
+            });
+            renderItineraryEditorForm();
+        }
+
+        function renderItineraryEditorForm() {
+            const container = document.getElementById('itineraryEditorForm');
+            const items = currentItinerary[activeItineraryTab] || [];
+
+            let html = '';
+            items.forEach((item, index) => {
+                html += `
+                <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700 space-y-2">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2 flex-1">
+                            <span class="text-[11px] font-bold text-amber-400">#${index + 1}</span>
+                            <input type="text" value="${escapeHtml(item.time)}" onchange="updateItineraryField('${activeItineraryTab}', ${index}, 'time', this.value)" placeholder="時間 (例: 14:00 - 16:30)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-amber-300 font-bold focus:outline-none focus:border-amber-400 w-36">
+                        </div>
+                        <button onclick="deleteItineraryItem('${activeItineraryTab}', ${index})" class="text-rose-400 hover:text-rose-300 text-xs px-2 py-1 bg-rose-950/40 rounded border border-rose-800/50">
+                            <i class="fa-solid fa-trash-can"></i> 削除
+                        </button>
+                    </div>
+                    <div>
+                        <input type="text" value="${escapeHtml(item.title)}" onchange="updateItineraryField('${activeItineraryTab}', ${index}, 'title', this.value)" placeholder="件名・タイトル" class="w-full bg-slate-900 border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white font-bold focus:outline-none focus:border-cyan-400">
+                    </div>
+                    <div>
+                        <textarea onchange="updateItineraryField('${activeItineraryTab}', ${index}, 'desc', this.value)" placeholder="詳細・説明文" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded px-2.5 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-cyan-400">${escapeHtml(item.desc)}</textarea>
+                    </div>
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function updateItineraryField(dayKey, index, field, value) {
+            if (currentItinerary[dayKey] && currentItinerary[dayKey][index]) {
+                currentItinerary[dayKey][index][field] = value;
+                saveItineraryData();
+            }
+        }
+
+        function deleteItineraryItem(dayKey, index) {
+            if (currentItinerary[dayKey]) {
+                currentItinerary[dayKey].splice(index, 1);
+                saveItineraryData();
+                renderItineraryEditorForm();
+            }
+        }
+
+        function addItineraryItem() {
+            if (!currentItinerary[activeItineraryTab]) {
+                currentItinerary[activeItineraryTab] = [];
+            }
+            currentItinerary[activeItineraryTab].push({
+                time: '12:00',
+                title: '新規予定',
+                desc: '予定の詳細情報を入力してください。',
+                color: 'bg-cyan-600',
+                ring: 'ring-cyan-100'
+            });
+            saveItineraryData();
+            renderItineraryEditorForm();
+        }
+
+        function saveItineraryData() {
+            localStorage.setItem('kojima_trip_itinerary_v2', JSON.stringify(currentItinerary));
+            renderItineraryTimeline();
+        }
+
+        function resetItineraryToDefault() {
+            currentItinerary = JSON.parse(JSON.stringify(defaultItinerary));
+            saveItineraryData();
+            renderItineraryEditorForm();
+        }
+
+        function setDay2Option(title, desc) {
+            const day2List = currentItinerary.day2 || [];
+            const slot = day2List.find(i => i.isOptionSlot);
+            if (slot) {
+                slot.title = '午後観光：' + title;
+                slot.desc = desc;
+            } else {
+                day2List.push({
+                    time: '14:00 - 16:00',
+                    title: '午後観光：' + title,
+                    desc: desc,
+                    isOptionSlot: true,
+                    color: 'bg-amber-500',
+                    ring: 'ring-amber-100',
+                    timeColor: 'text-amber-700'
+                });
+            }
+            saveItineraryData();
+        }
+
+        function saveMemo() {
+            const memo = document.getElementById('customMemoText').value;
+            localStorage.setItem('kojima_trip_memo', memo);
+        }
+
+        function loadSavedCustomizations() {
+            const savedBudget = localStorage.getItem('kojima_trip_budget');
+            if (savedBudget) {
+                try {
+                    currentBudget = JSON.parse(savedBudget);
+                    document.getElementById('inputTravelers').value = currentBudget.travelers || 2;
+                    document.getElementById('inputHotel1').value = currentBudget.hotel1 || 21000;
+                    document.getElementById('inputHotel2').value = currentBudget.hotel2 || 52000;
+                    document.getElementById('inputToll').value = currentBudget.toll || 19000;
+                    document.getElementById('inputGas').value = currentBudget.gas || 12000;
+                    document.getElementById('inputFood').value = currentBudget.food || 20000;
+                    document.getElementById('inputExtra').value = currentBudget.extra || 10000;
+                    document.getElementById('inputBoat').value = currentBudget.boat || 3200;
+                } catch (e) {}
+            }
+
+            const savedItinerary = localStorage.getItem('kojima_trip_itinerary_v2');
+            if (savedItinerary) {
+                try {
+                    currentItinerary = JSON.parse(savedItinerary);
+                } catch (e) {}
+            }
+
+            const savedMemo = localStorage.getItem('kojima_trip_memo');
+            if (savedMemo) {
+                document.getElementById('customMemoText').value = savedMemo;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedCustomizations();
+            initCharts();
+            updateCalculations();
+            renderItineraryTimeline();
+        });
+    </script>
+</body>
+</html>
