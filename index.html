@@ -90,18 +90,38 @@
         </div>
     </header>
 
-    <div class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 flex justify-around py-3.5 text-xs md:text-sm font-semibold text-slate-300 overflow-x-auto whitespace-nowrap gap-4">
-            <a href="#summary" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-calculator text-cyan-500"></i> 費用分析・予算編集</a>
-            <a href="#itinerary" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-route text-cyan-500"></i> 行程編集＆ロードマップ</a>
-            <a href="#powerspots" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-torii-gate text-cyan-500"></i> 周辺パワースポット</a>
-            <a href="#highlights" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-star text-cyan-500"></i> 注目スポット</a>
-            <a href="#gourmet" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-utensils text-cyan-500"></i> 人気グルメ</a>
-            <a href="#links" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-rose-400"></i> Map＆検索リンク</a>
+    <!-- ナビゲーションバー: PCは画面上部にsticky固定、スマホは画面下部にfixed固定（アプリ風ボトムナビ） -->
+    <nav class="fixed bottom-0 left-0 right-0 md:static md:sticky md:top-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-2xl md:shadow-lg border-t md:border-t-0 md:border-b border-slate-800 transition-all">
+        <div class="max-w-6xl mx-auto px-2 md:px-4 grid grid-cols-6 md:flex md:justify-around text-slate-300">
+            <a href="#summary" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-calculator text-cyan-400 text-sm md:text-base"></i>
+                <span class="truncate">費用・予算</span>
+            </a>
+            <a href="#itinerary" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-route text-cyan-400 text-sm md:text-base"></i>
+                <span class="truncate">行程日程</span>
+            </a>
+            <a href="#powerspots" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-torii-gate text-cyan-400 text-sm md:text-base"></i>
+                <span class="truncate">名所・神社</span>
+            </a>
+            <a href="#highlights" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-star text-cyan-400 text-sm md:text-base"></i>
+                <span class="truncate">注目体験</span>
+            </a>
+            <a href="#gourmet" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-utensils text-cyan-400 text-sm md:text-base"></i>
+                <span class="truncate">人気グルメ</span>
+            </a>
+            <a href="#links" class="flex flex-col md:flex-row items-center justify-center py-2 md:py-3.5 px-1 hover:text-cyan-400 transition-colors gap-1 md:gap-1.5 text-[10px] md:text-sm font-semibold">
+                <i class="fa-solid fa-map-location-dot text-rose-400 text-sm md:text-base"></i>
+                <span class="truncate">Map・検索</span>
+            </a>
         </div>
-    </div>
+    </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+    <!-- スマホ閲覧時にボトムナビと被らないよう pb-20 を追加 -->
+    <main class="max-w-6xl mx-auto px-4 py-8 pb-20 md:pb-8 space-y-12">
 
         <section id="summary" class="scroll-mt-20 space-y-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-l-4 border-cyan-600 pl-3">
@@ -411,7 +431,7 @@
                             <span class="text-xs font-semibold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded">2日目 10:00便推奨</span>
                             <h3 class="text-xl font-bold mt-1">児島 瀬戸大橋観光船（遊覧船）</h3>
                         </div>
-                        <a href="https://www.setoohashikankosen.com/" target="_blank" class="px-3 py-1 bg-white text-cyan-800 text-xs font-bold rounded shadow hover:bg-slate-100 transition-colors">HPを見る ↗</a>
+                        <a href="https://www.okayama-kanko.jp/spot/detail_10254.html" target="_blank" class="px-3 py-1 bg-white text-cyan-800 text-xs font-bold rounded shadow hover:bg-slate-100 transition-colors">公式案内 ↗</a>
                     </div>
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <p class="text-xs text-slate-600 leading-relaxed">
@@ -638,7 +658,7 @@
                 <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between space-y-2">
                     <div class="font-bold text-slate-800">瀬戸大橋周遊観光船</div>
                     <div class="flex gap-2">
-                        <a href="https://www.setoohashikankosen.com/" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式HP ↗</a>
+                        <a href="https://www.okayama-kanko.jp/spot/detail_10254.html" target="_blank" class="flex-1 text-center py-1 bg-white hover:bg-slate-100 text-slate-700 rounded border border-slate-200 font-semibold transition-colors">公式情報 ↗</a>
                         <a href="https://www.google.com/maps/search/?api=1&query=児島観光港+瀬戸大橋観光船" target="_blank" class="flex-1 text-center py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded border border-rose-200 font-semibold transition-colors"><i class="fa-solid fa-map-location-dot"></i> Map</a>
                         <a href="https://www.google.com/search?q=瀬戸大橋周遊観光船" target="_blank" class="flex-1 text-center py-1 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded border border-sky-200 font-semibold transition-colors"><i class="fa-solid fa-magnifying-glass"></i> 検索</a>
                     </div>
