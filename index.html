@@ -427,7 +427,8 @@
                     { time: "10:15", title: "舞鶴西IC", desc: "市街地渋滞を避け、舞鶴西ICから舞鶴若狭自動車道へ流入。" },
                     { time: "11:30 - 12:30", title: "昼食休憩（西紀SA 又は 三木SA）", desc: "西紀SAで名物黒豆パンや丹波地鶏、または三木SAで播州ラーメンなどお好みのSAで昼食。" },
                     { time: "14:15", title: "児島IC 到着", desc: "瀬戸中央道 児島ICにて高速を下車。" },
-                    { time: "14:30 - 16:30", title: "鷲羽山展望台 ＆ KOTKA SETOUCHI", desc: "瀬戸内海の絶景パノラマを満喫し、日本茶カフェでリラックス。" },
+                    { time: "14:30 - 15:00", title: "BAKERU", desc: "岡山県倉敷市児島味野2丁目2-50。児島ICからの到着時間は目安です。店舗立ち寄り・見学。" },
+                    { time: "15:15 - 16:30", title: "鷲羽山展望台 ＆ KOTKA SETOUCHI", desc: "瀬戸内海の絶景パノラマを満喫し、日本茶カフェでリラックス。" },
                     { time: "17:00", title: "ホテル チェックイン", desc: "せとうち児島ホテル（または同等ホテル）へチェックイン。温泉と夕食を堪能。" }
                 ],
                 day2: [
@@ -447,12 +448,14 @@
             },
             rainy: {
                 day1: [
+                    { time: "※候補", title: "※雨天時の代替ルート（削除可）", desc: "三国町から小浜ICまで下道で移動。小浜IC到着時の天候・道路状況を見ながら舞鶴若狭自動車道に乗り、児島方面へ向かう候補ルート。不要なら削除できます。" },
                     { time: "07:30", title: "自宅出発（福井）", desc: "金津・福井ICから北陸自動車道へ。" },
                     { time: "08:20", title: "敦賀IC下車・国道27号", desc: "敦賀ICで下り、若狭・小浜方面へドライブ。" },
                     { time: "10:15", title: "舞鶴西IC", desc: "舞鶴西ICから舞鶴若狭自動車道へ流入。" },
                     { time: "11:30 - 12:30", title: "昼食休憩（西紀SA または 三木SA）", desc: "雨でも安心な大型SAのフードコートで昼食。" },
                     { time: "14:15", title: "児島IC 到着", desc: "瀬戸中央道 児島ICにて高速を下車。" },
-                    { time: "14:30 - 16:30", title: "ベティスミス ジーンズミュージアム ＆ KOTKA", desc: "雨でも楽しめるジーンズミュージアムの屋内見学と、ガラス張りのカフェKOTKAで雨の瀬戸内鑑賞。" },
+                    { time: "14:30 - 15:00", title: "BAKERU", desc: "岡山県倉敷市児島味野2丁目2-50。児島ICからの到着時間は目安です。店舗立ち寄り・見学。" },
+                    { time: "15:15 - 16:30", title: "ベティスミス ジーンズミュージアム ＆ KOTKA", desc: "雨でも楽しめるジーンズミュージアムの屋内見学と、ガラス張りのカフェKOTKAで雨の瀬戸内鑑賞。" },
                     { time: "17:00", title: "ホテル チェックイン", desc: "ホテルへチェックイン。温泉で冷えた体を温める。" }
                 ],
                 day2: [
@@ -569,7 +572,7 @@
         // === タイムライン＆スケジュール機能 ===
         function loadScheduleData() {
             try {
-                const saved = localStorage.getItem('kojima_schedule_v3');
+                const saved = localStorage.getItem('kojima_schedule_v4');
                 if (saved) customSchedules = JSON.parse(saved);
                 else customSchedules = JSON.parse(JSON.stringify(defaultSchedules[currentMode]));
             } catch(e) {
@@ -596,7 +599,7 @@
                 btn.className = "px-3 py-1.5 bg-blue-500 text-white font-bold text-sm rounded-lg shadow hover:bg-blue-400 transition-colors";
             }
             customSchedules = JSON.parse(JSON.stringify(defaultSchedules[currentMode]));
-            localStorage.removeItem('kojima_schedule_v3');
+            localStorage.removeItem('kojima_schedule_v4');
             renderTimeline();
             renderEditorItems();
         }
@@ -644,6 +647,7 @@
         }
 
         function switchEditDay(day) {
+            syncEditorToData();
             currentEditDay = day;
             ['day1', 'day2', 'day3'].forEach(d => {
                 const tab = document.getElementById(`tab_edit_${d}`);
@@ -667,6 +671,11 @@
                             <input type="text" id="edit_title_${index}" value="${escapeHtml(item.title)}" class="w-2/3 p-1.5 border rounded text-sm font-bold bg-slate-50" placeholder="タイトル・場所">
                         </div>
                         <textarea id="edit_desc_${index}" rows="2" class="w-full p-1.5 border rounded text-xs text-slate-600 bg-slate-50" placeholder="詳細説明...">${escapeHtml(item.desc)}</textarea>
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <button onclick="moveScheduleItem(${index}, -1)" class="px-3 py-1.5 bg-slate-100 border rounded text-xs font-bold">↑ 上へ</button>
+                            <button onclick="moveScheduleItem(${index}, 1)" class="px-3 py-1.5 bg-slate-100 border rounded text-xs font-bold">↓ 下へ</button>
+                            <button onclick="insertScheduleItemAfter(${index})" class="px-3 py-1.5 bg-sky-50 border border-sky-300 rounded text-xs font-bold text-sky-700">＋ この下に追加</button>
+                        </div>
                     </div>
                 `;
                 container.innerHTML += html;
@@ -708,7 +717,7 @@
 
         function saveSchedule(showAlert = true) {
             syncEditorToData();
-            localStorage.setItem('kojima_schedule_v3', JSON.stringify(customSchedules));
+            localStorage.setItem('kojima_schedule_v4', JSON.stringify(customSchedules));
             renderTimeline();
             if(showAlert) {
                 toggleElement('itineraryEditor');
@@ -718,7 +727,7 @@
 
         function resetSchedule() {
             customSchedules = JSON.parse(JSON.stringify(defaultSchedules[currentMode]));
-            localStorage.removeItem('kojima_schedule_v3');
+            localStorage.removeItem('kojima_schedule_v4');
             renderEditorItems();
             renderTimeline();
         }
@@ -735,5 +744,6 @@
     </script>
 </body>
 </html>
+
 
 
